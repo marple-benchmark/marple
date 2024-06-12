@@ -1,0 +1,22 @@
+{
+    "Name": "Who took the cookie in the kitchen?",
+    "Goal":
+    [
+        {
+            "obj_type": "cookie",
+            "on_furniture": "table",
+            "in_room": "Kitchen",
+            "pos": null,
+            "action": "pickup",
+            "state": null
+        },
+        {
+            "obj_type": "cookie",
+            "on_furniture": "table",
+            "in_room": "Bedroom",
+            "pos": null,
+            "action": "drop",
+            "state": null
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+hydra:
+  sweep:
+    dir: ./eval/${experiment.mission_name}/${data.split}/${experiment.agent}/${model.checkpoint_name}
+    subdir: ${hydra.job.override_dirname}
+
+defaults:
+  - _self_
+  - base_config
+
+model:
+  dirpath: /vision/u/emilyjin/marple_long/final_checkpoints
+
+experiment:
+  agent: A
+
+data: 
+  data_path: /vision/u/emilyjin/marple_long/data
+
+dataloader:
+  batch_size: 256
+
+trainer:
+  devices: 1
+  max_epochs: 1

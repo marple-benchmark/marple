@@ -1,0 +1,24 @@
+name: marple-long
+channels:
+- esri
+- scitools
+- obspy
+- conda-forge
+- defaults
+- apple
+dependencies:
+- pip
+- python=3.9.16
+- pip:
+  - numpy
+  - torch
+  - flask
+  - matplotlib
+  - jupyter
+  - pandas
+  - gym==0.21.0
+  - minigrid 
+  - gym-minigrid==1.0.3
+  - pydub
+  - names
+  - array2gif

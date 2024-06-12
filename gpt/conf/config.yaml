@@ -1,0 +1,4 @@
+defaults:
+  - model: gpt4_azure
+  - data: data
+  - prompts: prompts

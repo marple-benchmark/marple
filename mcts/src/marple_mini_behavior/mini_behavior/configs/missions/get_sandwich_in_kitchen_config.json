@@ -1,0 +1,38 @@
+{
+    "Name": "Who get sandwich in the kitchen?",
+    "Goal":
+    [
+        {
+            "obj_type": "electric_refrigerator",
+            "on_furniture": null,
+            "in_room": "Kitchen",
+            "pos": null,
+            "action": "open",
+            "state": ["open"]
+        },
+        {
+            "obj_type": "sandwich",
+            "on_furniture": null,
+            "in_room": "Kitchen",
+            "pos": null,
+            "action": "pickup",
+            "state": null
+        },
+        {
+            "obj_type": "electric_refrigerator",
+            "on_furniture": null,
+            "in_room": "Kitchen",
+            "pos": null,
+            "action": "close",
+            "state": ["close"]
+        },
+        {
+            "obj_type": "sandwich",
+            "on_furniture": "table",
+            "in_room": "Bedroom",
+            "pos": null,
+            "action": "drop",
+            "state": null
+        }
+    ]
+}

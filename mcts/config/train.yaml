@@ -1,0 +1,35 @@
+hydra:
+  sweep:
+    dir: ./train/${experiment.mission_name}/${experiment.agent}
+    subdir: ${hydra.job.override_dirname}
+
+defaults:
+  - _self_
+  - base_config
+
+data:
+  split: 'train' # whether to run on test set or just train, should be false, test only used for paper results
+  max_atomic_length: 2
+
+dataloader:
+  batch_size: 64
+
+trainer:
+  devices: 1
+  max_epochs: 20
+
+model:
+  embedding_dim: 1024
+  vit_dim: 1024
+  vit_depth: 16   
+
+optimizer:
+  name: adam
+  # weight_decay: ${hydra.sweeper.params.optimizer.weight_decay}
+  # lr: ${hydra.sweeper.params.optimizer.lr}
+  # weight_decay: 1e-4
+  lr: 1e-3
+  
+
+# run this command and include the flags as these are needed for generating the hydra repo
+# python train.py --multirun model.model_name=transformer_model experiment.experiment_name=sanity_checks-sanity_check_0 experiment.agent=init_config_agent_a_v2 experiment.mission_name=get_night_snack optimizer.lr=1e-4,5e-5 optimizer.weight_decay=1e-4 dataloader.batch_size=32

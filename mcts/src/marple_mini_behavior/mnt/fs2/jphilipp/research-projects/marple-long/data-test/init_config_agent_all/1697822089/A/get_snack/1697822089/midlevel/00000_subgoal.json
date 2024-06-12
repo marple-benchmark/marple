@@ -1,0 +1,21 @@
+[
+    "pickup-*-sandwich-electric_refrigerator-Kitchen",
+    {
+        "obj": "sandwich",
+        "fur": "electric_refrigerator",
+        "room": "Kitchen",
+        "pos": null,
+        "action": "pickup",
+        "state": null,
+        "can_skip": false,
+        "end_state": false
+    },
+    {
+        "obj": 63,
+        "fur": 33,
+        "room": 1,
+        "pos": null,
+        "action": 8,
+        "state": null
+    }
+]

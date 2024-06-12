@@ -1,0 +1,1 @@
+from marple_mini_behavior.mini_behavior.envs.auto_generate_env import *

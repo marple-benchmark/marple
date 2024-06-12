@@ -1,0 +1,294 @@
+{
+    "Grid": 
+    {
+        "auto": {
+            "max_num_agent": 5,
+            "room_split_dirs": ["vert", "horz"],
+            "min_room_dim": 5,
+            "max_num_room": 4
+        },
+        "width": 25,
+        "height": 25,
+        "agents": 
+        {
+            "num": 1,
+            "initial":
+            [
+                {
+                    "name": "B",
+                    "gender": "female",
+                    "pos": null,
+                    "dir": null,
+                    "color": "red",
+                    "step_size": 1,
+                    "forgetness": 0,
+                    "mission_preference_initial": {
+                        "get_night_snack": 0.3,
+                        "get_snack": 0.7,
+                        "feed_dog": 0.9,
+                        "watch_news_on_tv": 0.6,
+                        "move_plant_at_night": 0.9,
+                        "take_shower": 0.9,
+                        "do_laundry": 0.8,
+                        "watch_movie_cozily": 0.7,
+                        "change_outfit": 0.4,
+                        "clean_living_room_table": 0.9
+                    },
+                    "cur_mission": null,
+                    "cur_subgoal": null,
+                    "carrying": null
+                },
+                {
+                    "name": null,
+                    "gender": "male",
+                    "pos": null,
+                    "dir": null,
+                    "color": "blue",
+                    "step_size": 1,
+                    "forgetness": 1,
+                    "mission_preference_initial": {
+                        "get_night_snack": 0.1,
+                        "get_snack": 0.1,
+                        "feed_dog": 0.2,
+                        "watch_news_on_tv": 0,
+                        "move_plant_at_night": 0.3,
+                        "take_shower": 0.2,
+                        "do_laundry": 0.7,
+                        "watch_movie_cozily": 0.1,
+                        "change_outfit": 0,
+                        "clean_living_room_table": 0.1
+                    },
+                    "cur_mission": null,
+                    "cur_subgoal": null,
+                    "carrying": null
+                }
+            ]
+        },
+        "rooms": 
+        {
+            "num": 4,
+            "initial":
+            [
+                {
+                    "type": "Kitchen",
+                    "top": null,
+                    "size": null,
+                    "furnitures": 
+                    {
+                        "num": 4,
+                        "initial": 
+                        [
+                            {
+                                "type": "light",
+                                "state": {
+                                    "toggleable": 0
+                                },
+                                "pos": null,
+                                "objs": null
+                            },
+                            {
+                                "type": "table",
+                                "state": null,
+                                "pos": null,
+                                "objs": {
+                                    "num": 2,
+                                    "initial": [
+                                        {
+                                            "type": "dogfood",
+                                            "state": null,
+                                            "pos": null
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "closet",
+                                "state": {
+                                    "openable": 0
+                                },
+                                "pos": null,
+                                "objs": {
+                                    "num": 2,
+                                    "initial": [
+                                        {
+                                            "type": "towel",
+                                            "state": null,
+                                            "pos": null
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "electric_refrigerator",
+                                "state": null,
+                                "pos": null,
+                                "objs": 
+                                {
+                                    "num": null,
+                                    "initial": [
+                                        {
+                                            "type": "sandwich",
+                                            "state": null,
+                                            "pos": null
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "Bedroom",
+                    "top": null,
+                    "size": null,
+                    "furnitures": 
+                    {
+                        "num": 5,
+                        "initial": 
+                        [
+                            {
+                                "type": "light",
+                                "state": {
+                                    "toggleable": 1
+                                },
+                                "pos": null,
+                                "objs": null
+                            },
+                            {
+                                "type": "dog",
+                                "state": null,
+                                "pos": null,
+                                "objs": {
+                                    "num": 0,
+                                    "initial": []
+                                }
+                            },
+                            {
+                                "type": "table",
+                                "state": null,
+                                "pos": null,
+                                "objs": null
+                            },
+                            {
+                                "type": "bed",
+                                "state": null,
+                                "pos": null,
+                                "objs": {
+                                    "num": 2,
+                                    "initial": [
+                                        {
+                                            "type": "pillow",
+                                            "state": null,
+                                            "pos": null
+                                        },
+                                        {
+                                            "type": "clothes",
+                                            "state": null,
+                                            "pos": null
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "closet",
+                                "state": null,
+                                "pos": null,
+                                "objs": {
+                                    "num": 2,
+                                    "initial": [
+                                        {
+                                            "type": "clothes",
+                                            "state": null,
+                                            "pos": null
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "LivingRoom",
+                    "top": null,
+                    "size": null,
+                    "furnitures": 
+                    {
+                        "num": 4,
+                        "initial": 
+                        [
+                            {
+                                "type": "sofa",
+                                "state": null,
+                                "pos": null,
+                                "objs": {
+                                    "num": 2,
+                                    "initial": 
+                                    [
+                                        {
+                                            "type": "remote",
+                                            "state": null,
+                                            "pos": null
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "television",
+                                "state": {
+                                    "toggleable": 0
+                                },
+                                "pos": null,
+                                "objs": null
+                            },
+                            {
+                                "type": "table",
+                                "state": {
+                                    "dustyable": 1
+                                },
+                                "pos": null,
+                                "objs": {
+                                    "num": 2,
+                                    "initial": [
+                                        {
+                                            "type": "pot_plant",
+                                            "state": null,
+                                            "pos": null
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "closet",
+                                "state": null,
+                                "pos": null,
+                                "objs": null
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "Bathroom",
+                    "top": null,
+                    "size": null,
+                    "furnitures": {
+                        "num": 3,
+                        "initial": [
+                            {
+                                "type": "shower",
+                                "state": null,
+                                "pos": null,
+                                "objs": null
+                            },
+                            {
+                                "type": "laundry",
+                                "state": null,
+                                "pos": null,
+                                "objs": null
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

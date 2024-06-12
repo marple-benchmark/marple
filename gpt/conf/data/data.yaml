@@ -1,0 +1,3 @@
+dir: ../data/  # data dir
+result_dir: ../results/  # where to store results 
+config_file: ../final_experiments.json

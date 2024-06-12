@@ -1,0 +1,14 @@
+{
+    "Name": "Who left the light on in the kitchen?",
+    "Goal":
+    [
+        {
+            "obj_type": "light",
+            "on_furniture": null,
+            "in_room": "Kitchen",
+            "pos": null,
+            "action": "toggle",
+            "state": ["toggleable"]
+        }
+    ]
+}

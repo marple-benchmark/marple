@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Behavior</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</head>
+<body>
+    <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+    <div class="ui container">
+    <h1>Sample Task</h1>
+    <!-- Show number of stories already generated -->
+    <div class="ui form">
+    <div class="ui placeholder segment">
+    <div class="ui two column  stackable grid">
+    <div class="column">
+    <div class="field">
+        <label>Task</label>
+        <select id="task-dropdown" class="ui dropdown">
+            <option value="who_left_the_light_on_in_kitchen-1"> "who_left_the_light_on_in_kitchen-1 </option>
+            <option value="who_left_the_light_on_in_kitchen-2"> "who_left_the_light_on_in_kitchen-2 </option>
+            <option value="who_left_the_light_on_in_kitchen-3"> "who_left_the_light_on_in_kitchen-3 </option>
+        </select>
+    </div>
+      <div class="field">
+        <label>N Agents</label>
+        <select id="agent-dropdown" class="ui dropdown">
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+        </select>
+    </div>
+        <div class="field">
+            <label>N Rooms</label>
+            <select id="room-dropdown" class="ui dropdown">
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+            </select>
+        </div>
+        <div class="field">
+            <label>N Furniture</label>
+            <select id="furniture-dropdown" class="ui dropdown">
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+            </select>
+          </div>
+          <div class="field">
+            <label>N Objects</label>
+            <select id="object-dropdown" class="ui dropdown">
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+            </select>
+          </div>
+          <button type="button" id="generateBtn" class="ui  fluid button">Generate</button>
+    </div>
+    <div class="column">
+        <div class="field">
+            <label>Sample:</label>
+            <div id="gridworld">
+                <p><span id="gridworld-content"></span></p>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+<script>
+    // When the user clicks the "Regenerate" button
+    $('#generateBtn').click(function() {
+        // Get the values from the form
+        var task = $('#task-dropdown').val();
+        var num_agents = $('#agent-dropdown').val();
+        var num_rooms = $('#room-dropdown').val();
+        var num_furniture = $('#furniture-dropdown').val();
+        var num_objects = $('#object-dropdown').val();
+
+        // Call the backend to do something with the selected values
+        $.ajax({
+            type: "POST",
+            url: "/generate",
+            data: {task: task, num_agents: num_agents, num_rooms: num_rooms, num_furniture: num_furniture, num_objects: num_objects},
+            success: function(data) {
+                // Update the gridworld div with the new program
+                $('#gridworld-content').html(data.program);
+
+                // Clear the form inputs
+                $('#task-dropdown').val('');
+                $('#agent-dropdown').val('');
+                $('#room-dropdown').val('');
+                $('#furniture-dropdown').val('');
+                $('#object-dropdown').val('');
+            },
+            error: function() {
+                alert("Error sending data to backend.");
+            }
+        });
+    });
+</script>
+</body>
+</html> 

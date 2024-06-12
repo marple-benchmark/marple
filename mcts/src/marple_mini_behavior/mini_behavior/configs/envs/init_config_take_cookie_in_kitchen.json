@@ -1,0 +1,101 @@
+{
+    "Grid": 
+    {
+        "auto": {
+            "max_num_agent": 5,
+            "room_split_dirs": ["vert", "horz"],
+            "min_room_dim": 5,
+            "max_num_room": 4
+        },
+        "width": 20,
+        "height": 20,
+        "agents": 
+        {
+            "num": 2,
+            "initial": 
+            [
+                {
+                    "name": "Tobi",
+                    "gender": "male",
+                    "pos": null,
+                    "dir": null,
+                    "color": "blue",
+                    "step_size": 2
+                },
+                {
+                    "name": "Zoey",
+                    "gender": "female",
+                    "pos": null,
+                    "dir": null,
+                    "color": "red",
+                    "step_size": 1
+                }
+            ]
+        },
+        "rooms": 
+        {
+            "num": 3,
+            "initial":
+            [
+                {
+                    "type": "Kitchen",
+                    "top": null,
+                    "size": null,
+                    "furnitures": 
+                    {
+                        "num": null,
+                        "initial": 
+                        [
+                            {
+                                "type": "light",
+                                "state": [],
+                                "pos": null,
+                                "objs": null
+                            },
+                            {
+                                "type": "table",
+                                "state": [],
+                                "pos": null,
+                                "objs": 
+                                {
+                                    "num": null,
+                                    "initial": [
+                                        {
+                                            "type": "cookie",
+                                            "state": [],
+                                            "pos": null
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "Bedroom",
+                    "top": null,
+                    "size": null,
+                    "furnitures": 
+                    {
+                        "num": null,
+                        "initial": 
+                        [
+                            {
+                                "type": "light",
+                                "state": ["toggleable"],
+                                "pos": null,
+                                "objs": null
+                            },
+                            {
+                                "type": "table",
+                                "state": [],
+                                "pos": null,
+                                "objs": null
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
