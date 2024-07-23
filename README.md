@@ -5,6 +5,16 @@ This repository contains the simulator and experiment code for **MARPLE: A Bench
 
 The Simulator Codebase is developed from https://github.com/StanfordVL/mini_behavior.
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Folder Structure](#folder-structure)
+- [Train and Evaluate Policy Models](#train-and-evaluate-policy-models)
+- [Experiments](#experiments)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Installation
 Before Migration gym 0.21.0 to 0.26.0
 ```bash
@@ -25,25 +35,55 @@ Below is the folder structure of our project:
 - `/MARPLE/`
   -  `/gpt/` Code for GPT-4 
     - `azure.py`
-    - `/conf/`	
+    - `/config/`	
     - `gpt4.py`
     - `helpers.py` 
     - `main.py`
     - `prompts.py` 
-    - `/scripts/`
   - `/mcts/` Code for Mental Simulation with Learned Agent Models 
     - `/config/`
     - `/src/`
-      - `/marple_mini_behavior/` Simulator Code
-      - `/MarpleLongModels/` Model Code
-    - `/scripts/`
-    - `/utils/`
+      - `/mini_behavior/` Simulator Code
+      - `/models/` Model Code
+    - `arguments.py`
+    - `eval.py`
+    - `inference.py`
+    - `main.py`
+    - `train.py`
   - `/figures/`
-  - `/plot/`
   - `setup.py`
   - `requirements.txt`
   - `.gitignore`
   - `datasheet.md`
   - `README.md`
 
- 
+## Train and Evaluate Policy Models
+To train the model, use the following command:
+```bash
+python mcts/train.py experiment.mission_1=${mission_1} experiment.mission_1_pref=${mission_1_pref} experiment.mission_2=${mission_2} experiment.mission_2_pref=${mission_2_pref} model.model_name=${model_name}
+```
+
+To evaluate the model, use the following command: 
+```bash
+python mcts/eval.py experiment.mission_1=${mission_1} experiment.mission_1_pref=${mission_1_pref} experiment.mission_2=${mission_2} experiment.mission_2_pref=${mission_2_pref} model.model_name=${model_name} model.checkpoint_name=${checkpoint_name} data.split=${split} model.dirpath=${checkpoint_path} experiment.results_dir=${results_dir}
+```
+
+## Experiments
+To run an inference experiment using a trained low level policy model, use the following command:
+```bash
+python mcts/main.py rollout.room_config=${room_config} rollout.traj_name=${traj_name} rollout.a_mission=${a_mission} rollout.b_mission=${b_mission} rollout.a_pref=${a_pref} rollout.b_pref=${b_pref}  experiment.agent=${inference_answer} experiment.experiment_name=${experiment_name}  model.dirpath=${data_level}
+```
+
+To run an inference experiment using a subgoal conditioned, low level policy model, use the following command:
+```bash
+python mcts/main.py rollout.room_config=${room_config} rollout.traj_name=${traj_name} rollout.a_mission=${a_mission} rollout.b_mission=${b_mission} rollout.a_pref=${a_pref} rollout.b_pref=${b_pref} experiment.agent=${inference_answer} experiment.experiment_name=${experiment_name} model.dirpath=${data_level}
+```
+
+## GPT-4 Experiments
+TO run an inference experiment using GPT-4, use the following command:
+```bash
+python gpt/main.py data.mission=$config 
+```
+## Contributing
+
+## License

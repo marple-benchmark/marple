@@ -17,7 +17,7 @@ data:
   data_path: /vision/u/emilyjin/marple_long/data
 
 dataloader:
-  batch_size: 256
+  batch_size: 32
 
 trainer:
   devices: 1

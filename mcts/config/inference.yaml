@@ -1,0 +1,29 @@
+hydra:
+  run:
+    dir: ./hydra/${experiment.mission_name}/${experiment.agent}/${rollout.traj_name}/${rollout.from_step_count}/${rollout.policy_model_checkpoint_short}
+  job:
+    env_set:
+      CUDA_VISIBLE_DEVICES: 0
+
+defaults:
+  - base_config
+  - _self_
+
+model:
+  model_name: low_policy
+  embedding_dim: 1024 
+  dirpath: /vision/u/emilyjin/marple_long/final_checkpoints/${experiment.experiment_name}
+
+data: 
+  data_level: low
+  goal_conditioned: false
+  
+simulator:
+  save: False
+  
+rollout:
+  rollout_dir: /vision/u/emilyjin/marple_long/experiments/${experiment.experiment_name}/rollouts
+  policy_model_checkpoint_short: ${model.model_name}_${model.embedding_dim}.ckpt
+  id: ${experiment.mission_name}
+  rollout_level: ${data.data_level}
+  verbose: False

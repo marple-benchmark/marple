@@ -20,7 +20,7 @@ from prompts import SYSTEM_MESSAGES, PROMPT_TEMPLATES
 logging.basicConfig(level=logging.INFO)
 
 
-@hydra.main(version_base=None, config_path="conf", config_name="config")
+@hydra.main(version_base=None, config_path="config", config_name="config")
 def main(args: DictConfig) -> None:
 
     # get model 
