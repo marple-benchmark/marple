@@ -2,7 +2,7 @@
 This repository contains the simulator and experiment code for **MARPLE: A Benchmark for Long-Horizon Inference**.
 
 The project website is: https://marple-benchmark.github.io/.
-The data is uploaded [here](https://drive.google.com/drive/folders/1c4ncerbpZMyWxhDs-ysPze6LxQ4lgW3e?usp=drive_link).
+The data is uploaded [here](https://drive.google.com/drive/folders/1zXsErNVOMYjBMWzTnmZS4e4aIljWlRce?usp=sharing).
 
 ## Table of Contents
 
