@@ -3,11 +3,10 @@ import torch.nn as nn
 import math
 import torch.nn.functional as F
 import torchvision
-from vit import SimpleViT, PerPatchViT
 from torch.nn import Transformer
-
 from einops import rearrange, repeat, reduce
 
+from src.models.vit import SimpleViT, PerPatchViT
 
 def generate_square_subsequent_mask(sz):
     """

@@ -1,3 +1,5 @@
+from src.simulator.missions import MISSION_TO_SUBGOALS
+
 ACTION_TO_IDX = {
     'null': 0,
     'idle': 1,

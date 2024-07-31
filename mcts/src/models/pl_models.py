@@ -5,8 +5,8 @@ import pytorch_lightning as pl
 from torch.optim import lr_scheduler
 import torch.nn as nn
 import numpy as np
-import vocab
-from models import PolicyModel, TransformerHeadPolicyModel, HistAwareTransformerHeadPolicyModel, AudioConditionedTransformerHeadPolicyModel
+import src.simulator.vocab as vocab
+from src.models.models import PolicyModel, TransformerHeadPolicyModel, HistAwareTransformerHeadPolicyModel, AudioConditionedTransformerHeadPolicyModel
 from warmup_scheduler import GradualWarmupScheduler
 
 from einops import rearrange, repeat, reduce

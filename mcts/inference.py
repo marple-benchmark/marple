@@ -12,7 +12,7 @@ from gym_minigrid.wrappers import *
 
 from src.mini_behavior import *
 from src.models.pl_models import BasicModel, LowBasicModel
-from src.models.rollout import Rollout
+from src.simulator.rollout import Rollout
 
 
 def pad(state, target_size=(20,20,8)):

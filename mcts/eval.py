@@ -13,7 +13,7 @@ from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint
 from tqdm import tqdm
 
-from src.models.dataset import BasicDataset
+from src.simulator.dataset import BasicDataset
 from src.models.pl_models import BasicModel, LowBasicModel
 from arguments import Arguments
 

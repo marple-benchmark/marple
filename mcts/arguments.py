@@ -45,7 +45,7 @@ class DataArguments:
     Data args
     """
     data_path: Optional[str] = field(
-        default="/vision/u/emilyjin/marple_long/data",
+        default="/vision/u/emilyjin/marple-benchmark/marple_long/data",
         metadata={
             "help": (
                 "Path to data."
@@ -284,7 +284,7 @@ class WandBArguments:
     Wandb args
     """
     project: Optional[str] = field(
-        default="marple-long",
+        default="marple",
         metadata={
             "help": (
                 "Wandb project."
@@ -300,7 +300,7 @@ class WandBArguments:
         },
     )
     save_dir: Optional[str] = field(
-        default="/vision/u/emilyjin/marple_long/wandb/",
+        default="/vision/u/emilyjin/marple_long/",
         metadata={
             "help": (
                 "Where to save cached files."

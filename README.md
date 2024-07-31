@@ -1,9 +1,9 @@
 # MARPLE: A Benchmark for Long-Horizon Inference
-This repository contains the simulator and experiment code for **MARPLE: A Benchmark for Long-Horizon Inference.**
+This repository contains the simulator and experiment code for **MARPLE: A Benchmark for Long-Horizon Inference**.
+
+The project website is: https://marple-benchmark.github.io/.
 
 ![Figure 1](figures/main.png)
-
-The Simulator Codebase is developed from https://github.com/StanfordVL/mini_behavior.
 
 ## Table of Contents
 
@@ -57,6 +57,11 @@ Below is the folder structure of our project:
   - `datasheet.md`
   - `README.md`
 
+## Data
+### Downloading Data
+The data is uploaded at a [Google Drive link](https://drive.google.com/drive/folders/1c4ncerbpZMyWxhDs-ysPze6LxQ4lgW3e?usp=drive_link). You can download the zip files and add them to the "data" directory. The scripts will assume that the data is located in that directory.
+<!-- ### Generating Data -->
+
 ## Train and Evaluate Policy Models
 You can train a policy model on any dataset of agent trajectories. All of the policy models can be trained using the following command:
 ```bash
@@ -65,7 +70,7 @@ python mcts/train.py experiment.mission_1=${mission_1} experiment.mission_1_pref
 
 For example, to train a low-level policy model for an agent that performs the mission 'feed dog' 60% of the time and 'do laundry' 40% of the time, run the following command:
 ```bash
-python mcts/train.py experiment.mission_1=feed_dog experiment.mission_1_pref=0.6 experiment.mission_2=do_laundry experiment.mission_2_pref=0.4 model.model_name=low_policy
+python mcts/train.py experiment.mission_1=feed_dog experiment.mission_1_pref=0.6 experiment.mission_2=take_shower experiment.mission_2_pref=0.4 model.model_name=low_policy
 ```
 
 To evaluate the  model, use the following command: 

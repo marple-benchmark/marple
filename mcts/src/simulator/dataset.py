@@ -8,7 +8,7 @@ from tqdm import tqdm
 import json
 
 from torch.utils.data import DataLoader
-import vocab
+import src.simulator.vocab as vocab
 
 '''
 atomic action
@@ -207,25 +207,6 @@ class BasicDataset(torch.utils.data.Dataset):
                             cur_traj = test_traj
                         else:
                             raise NotImplementedError
-
-                        # cur_traj = []
-                        # for traj in temp_traj:
-                        #     num_subgoals = vocab.MISSION_TO_SUBGOAL_NUM[mission]
-                        #     traj_path = os.path.join(self.data_path, room, mission, traj)
-                        #     low_state_files = [f for f in os.listdir(traj_path) if f.endswith('states.npy')]
-                        #     low_action_files = [f for f in os.listdir(traj_path) if f.endswith('action.json')]
-                        #     if not os.path.exists(os.path.join(traj_path, 'midlevel')):
-                        #         print('no midlevel. removing ', traj_path) 
-                        #         continue
-                        #     mid_state_files = [f for f in os.listdir(os.path.join(traj_path, 'midlevel')) if f.endswith('final_states.npy')]
-                        #     mid_action_files = [f for f in os.listdir(os.path.join(traj_path, 'midlevel')) if f.endswith('subgoal.json')]
-                        #     if len(low_state_files) != (len(low_action_files) + 1):
-                        #         continue
-                        #     elif len(mid_state_files) != len(mid_action_files):                          
-                        #         continue
-                        #     elif len(mid_action_files) != num_subgoals:
-                        #         continue
-                        #     cur_traj.append(traj)
                             
                         num_sample = int(self.mission_dict[mission] * len(cur_traj))
                         sampled_traj = np.random.choice(cur_traj, num_sample, replace=False)
@@ -234,7 +215,7 @@ class BasicDataset(torch.utils.data.Dataset):
                             idx += 1 
 
                         all_traj.extend(sampled_traj)
-                        print(f"loaded {len(sampled_traj)} trajectories from room {room} mission: {mission}")
+                        # print(f"loaded {len(sampled_traj)} trajectories from room {room} mission: {mission}")
                         
         elif self.split == 'inference':
             for room in rooms:
@@ -387,7 +368,7 @@ class BasicDataset(torch.utils.data.Dataset):
 
 
     def construct_historical_data(self):
-        for idx, traj_path in self.idx_traj_map.items():
+        for idx, traj_path in tqdm(self.idx_traj_map.items()):
             low_state_files, low_action_files = self.get_sorted_files(traj_path, 'states.npy', 'action.json', 'low')
             mid_state_files, mid_action_files = self.get_sorted_files(os.path.join(traj_path, 'midlevel'), 'init_states.npy', 'subgoal.json', 'mid')
 

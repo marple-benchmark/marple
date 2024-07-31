@@ -12,21 +12,20 @@ from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping, Learning
 import wandb
 from lightning.pytorch.accelerators import find_usable_cuda_devices
 
-from src.dataset import BasicDataset
+from src.simulator.dataset import BasicDataset
 from src.models.pl_models import BasicModel, LowBasicModel
 from src.models.models import PolicyModel, LowPolicyModel, SubgoalConditionedLowPolicyModel
 from arguments import Arguments
 
 
-@hydra.main(config_path="config", config_name="train.yaml")
+@hydra.main(config_path="config", config_name="train.yaml", version_base="1.1")
 def main(args: DictConfig) -> None:  
+    
     mission_1, mission_2 = args.experiment.mission_1, args.experiment.mission_2
     mission_1_pref, mission_2_pref = args.experiment.mission_1_pref, args.experiment.mission_2_pref
     
     args.experiment.experiment_name = f'{mission_1}-{mission_1_pref}-{mission_2}-{mission_2_pref}'
-
-    # get data
-    args.data.data_path = f"/vision/u/emilyjin/marple_long/data/{mission_1}_{mission_2}/"
+    args.data.data_path = f"{args.data.data_path}/{mission_1}-{mission_2}/"
 
     args.data.mission_dict = {
         mission_1: float(mission_1_pref),
@@ -61,7 +60,7 @@ def main(args: DictConfig) -> None:
     test_args.split = 'test'
     valid_dataset = BasicDataset(test_args)
     args.data.split = 'train'
-
+    
     args.dataloader.num_workers = os.cpu_count() // 2
     train_dataloader = DataLoader(train_dataset, shuffle=True, **args.dataloader)
     valid_dataloader = DataLoader(valid_dataset, shuffle=False, **args.dataloader)
@@ -90,8 +89,14 @@ def main(args: DictConfig) -> None:
     wandb_logger = WandbLogger(**args.wandb, settings=wandb.Settings(_service_wait=300))
 
     # define trainer and train
-    trainer = pl.Trainer(logger=wandb_logger, callbacks=[checkpoint_callback, lr_monitor], log_every_n_steps=20,
-                        **args.trainer, check_val_every_n_epoch=1, accumulate_grad_batches=1)
+    trainer = pl.Trainer(
+        logger=wandb_logger, 
+        callbacks=[checkpoint_callback, lr_monitor], 
+        log_every_n_steps=20,
+        **args.trainer, 
+        check_val_every_n_epoch=1, 
+        accumulate_grad_batches=1
+        )
 
     trainer.fit(model, train_dataloaders=train_dataloader, val_dataloaders=valid_dataloader)
 
