@@ -13,6 +13,7 @@ The data is uploaded [here](https://drive.google.com/drive/folders/1zXsErNVOMYjB
 - [Experiments](#experiments)
 - [Contributing](#contributing)
 - [License](#license)
+- [Acknowledgements](#acknowledgements)
 
 ## Installation
 Before Migration gym 0.21.0 to 0.26.0
@@ -91,3 +92,5 @@ python gpt/main.py data.mission=$config
 ## Contributing
 
 ## License
+
+## Acknowledgements
