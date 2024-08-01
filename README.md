@@ -94,3 +94,4 @@ python gpt/main.py data.mission=$config
 ## License
 
 ## Acknowledgements
+This work was in part supported by a grant from the Stanford Institute for Human-Centered Artificial Intelligence (HAI), NSF CCRI #2120095, and ONR MURI N00014-22-1-2740.
