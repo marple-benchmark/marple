@@ -8,7 +8,7 @@ from inference import get_save_to, get_normalized_probs, save_all_results, get_i
 
 @hydra.main(version_base='1.1', config_path="config", config_name="inference.yaml")
 def main(args: DictConfig) -> None:
-    if args.rollout.rollout_level == 'low':
+    if args.rollout.language is False:
         args.data.data_level = 'low'
         args.model.model_name = 'low_policy'
         args.data.goal_conditioned = False
@@ -18,10 +18,9 @@ def main(args: DictConfig) -> None:
         args.data.goal_conditioned = True
         args.rollout.simulator = True
 
-    data_level = args.model.dirpath
     multiprocessing.set_start_method('spawn')
 
-    target_agent = args.experiment.agent
+    target_agent = args.rollout.inference_answer
     target_mission = args.rollout.a_mission if target_agent == 'A' else args.rollout.b_mission
     agent_prefs = {
         'A': {
@@ -38,7 +37,7 @@ def main(args: DictConfig) -> None:
     print('agent A: ', args.rollout.a_mission, agent_prefs['A'])
     print('agent B: ', args.rollout.b_mission, agent_prefs['B'])
 
-    args.data.data_path = os.path.join(args.data.data_path, f'init_config_{args.experiment.experiment_name}', args.rollout.room_config)    
+    args.data.data_path = os.path.join(args.data.data_path, args.experiment.experiment_name, args.rollout.room_config)    
     args.rollout.traj_name = sorted(args.data.data_path)[0] if args.rollout.traj_name is None else args.rollout.traj_name
     
     traj_folder_target = os.path.join(args.data.data_path, args.rollout.traj_name, target_mission)
@@ -56,7 +55,7 @@ def main(args: DictConfig) -> None:
 
     missions = [args.rollout.a_mission, args.rollout.b_mission]
 
-    save_path, save_filename = get_save_to(args, target_mission, target_agent, target_step, data_level, args.rollout.temp)
+    save_path, save_filename = get_save_to(args, target_mission, target_agent, target_step, args.model.generalization, args.rollout.temp)
     print(save_path, save_filename)
 
     print('get inference_probs for agent A')
@@ -65,7 +64,6 @@ def main(args: DictConfig) -> None:
     with open(os.path.join(save_path, f'{save_filename}.pkl'), 'wb') as f:
         probs = {'probs_a': list(a_probs), 'stds_a': list(a_stds)}
         pkl.dump(probs, f) 
-    args.model.dirpath = data_level
 
     print('get inference_probs for agent B')
     b_probs, b_stds = get_inference_probs(args, missions, 'B', args.rollout.b_mission, agent_prefs['B'], target_action, target_step, steps, args.rollout.num_samples, args.rollout.extra_steps, args.rollout.temp)

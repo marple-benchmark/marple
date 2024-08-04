@@ -1,0 +1,41 @@
+{
+    "watch_movie_cozily-watch_news_on_tv": {
+        "inference_answer": "A",         
+        "A_mission": "watch_movie_cozily", 
+        "B_mission": "watch_news_on_tv", 
+        "inference_question": "Given the initial and current states, which Agent is more likely to be the Agent that will pick up the pillow?", 
+        "trajs": [["room_0", "00001"], ["room_1", "00000"], ["room_2", "00004"], ["room_3", "00000"], ["room_4", "00007"], ["room_5", "00004"], ["room_6", "00000"], ["room_7", "00009"], ["room_8", "00002"], ["room_9", "00008"]]
+    }, 
+    
+    "feed_dog-take_shower": {
+        "inference_answer": "B",         
+        "A_mission": "feed_dog", 
+        "B_mission": "take_shower", 
+        "inference_question": "Given the initial and current states, which Agent is more likely to be the Agent that will turn on the shower?", 
+        "trajs": [["room_1", "00006"], ["room_1", "00008"], ["room_2", "00006"], ["room_3", "00004"], ["room_5", "00006"], ["room_5", "00008"], ["room_6", "00004"], ["room_6", "00005"], ["room_7", "00004"], ["room_9", "00002"]]
+    }, 
+        
+    "get_snack-clean_living_room_table": {
+        "inference_answer": "A",         
+        "A_mission": "get_snack", 
+        "B_mission": "clean_living_room_table",
+        "inference_question": "Given the initial and current states, which Agent is more likely to be the Agent that will pick up the sandwich?",
+        "trajs": [["room_0", "00008"], ["room_1", "00009"], ["room_2", "00005"], ["room_3", "00003"], ["room_4", "00005"], ["room_5", "00009"], ["room_6", "00000"], ["room_7", "00006"], ["room_8", "00000"], ["room_9", "00001"]]
+    }, 
+    
+    "move_plant_at_night-get_night_snack": {
+        "inference_answer": "A",         
+        "A_mission": "move_plant_at_night", 
+        "B_mission": "get_night_snack", 
+        "inference_question": "Given the initial and current states, which Agent is more likely to be the Agent that will pick up the plant?", 
+        "trajs": [["room_0", "00000"], ["room_1", "00000"], ["room_2", "00000"], ["room_3", "00004"], ["room_4", "00003"], ["room_5", "00005"], ["room_6", "00005"], ["room_7", "00006"], ["room_8", "00001"], ["room_9", "00009"]]
+    }, 
+    
+    "change_outfit-do_laundry": {
+        "inference_answer": "B",         
+        "A_mission": "change_outfit", 
+        "B_mission": "do_laundry", 
+        "inference_question": "Given the initial and current states, which Agent is more likely to be the Agent that will turn on the laundry?", 
+        "trajs": [["room_0", "00001"], ["room_1", "00001"], ["room_1", "00005"], ["room_2", "00006"], ["room_3", "00002"], ["room_4", "00007"], ["room_5", "00006"], ["room_7", "00001"], ["room_8", "00000"], ["room_8", "00001"]]
+    }
+}

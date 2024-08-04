@@ -45,8 +45,6 @@ def get_inference_probs(args, missions, agent, mission_name, agent_prefs, target
     args.rollout.verbose = False
 
     agent_model = f'{missions[0]}-{agent_prefs[missions[0]]}-{missions[1]}-{agent_prefs[missions[1]]}'
-    args.model.dirpath = os.path.join('/vision/u/emilyjin/marple_long/final_checkpoints', args.model.dirpath, args.experiment.experiment_name, agent_model)
-    args.rollout.policy_model_checkpoint = os.path.join(args.model.dirpath, args.rollout.policy_model_checkpoint_short)
     args.experiment.agent = agent
     args.experiment.mission_name = mission_name  
 
@@ -87,21 +85,15 @@ def get_inference_probs(args, missions, agent, mission_name, agent_prefs, target
 def get_save_to(args, target_mission, target_agent, target_step, data_level, temp):
     time_stamp = calendar.timegm(time.gmtime())
     inference_scenario = '-'.join([target_mission, target_agent])
-    agent_pref = f'{args.rollout.a_mission}-{args.rollout.a_pref}-{args.rollout.b_mission}-{args.rollout.b_pref}-temp_{str(temp)}'
-    path = os.path.join("/vision/u/emilyjin/marple_long/inference", f'{args.experiment.experiment_name}-{target_agent}', f'{args.rollout.room_config}-{args.rollout.traj_name}', agent_pref)
+    experiment_name =  f'{args.rollout.a_mission}-{args.rollout.a_pref}-{args.rollout.b_mission}-{args.rollout.b_pref}'
+    path = os.path.join("inference", f'{experiment_name}-{target_agent}', f'{args.rollout.room_config}-{args.rollout.traj_name}')
     os.makedirs(path, exist_ok=True)      
 
-    if args.model.model_name == 'low_policy':
-        filename = 'low_policy'
-    elif args.model.model_name == 'subgoal_low_policy' and args.rollout.simulator:
-        filename = 'subgoal_low_policy_simulator'
-    else:
-        filename = 'subgoal_low_policy_predicted'
-
+    filename = 'vision' 
     if args.rollout.audio:
-        filename += '_audio'
-    if data_level == 'data_level_2':
-        filename += '_2'
+        filename += '-audio'
+    if args.rollout.language:
+        filename += '-language'
 
     return path, filename
 

@@ -25,8 +25,10 @@ def main(args: DictConfig) -> None:
     
     args.experiment.experiment_name = f'{mission_1}-{mission_1_pref}-{mission_2}-{mission_2_pref}'
 
+    args.model.dirpath = os.path.join(args.model.dirpath, args.data.generalization, f'{mission_1}-{mission_2}', args.experiment.experiment_name, args.model.model_name)
+
     # get data
-    args.data.data_path = os.path.join(args.data.data_path, f"{mission_1}_{mission_2}")
+    args.data.data_path = os.path.join(args.data.data_path, f"train_{args.data.generalization}",  f"{mission_1}_{mission_2}")
     print('loading data from', args.data.data_path)
         
     args.data.mission_dict = {

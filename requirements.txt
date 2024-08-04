@@ -1,3 +1,4 @@
+git+https://github.com/openai/gym.git@9180d12e1b66e7e2a1a622614f787a6ec147ac40
 gym==0.21.0
 pytorch_lightning==1.6.1
 wandb===0.13.10

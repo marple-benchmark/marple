@@ -4,12 +4,12 @@ from datetime import datetime
 import hydra
 from omegaconf import DictConfig
 import torch
+import wandb
 import torch.nn as nn
 from torch.utils.data import DataLoader
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping, LearningRateMonitor
-import wandb
 from lightning.pytorch.accelerators import find_usable_cuda_devices
 
 from src.simulator.dataset import BasicDataset
@@ -25,7 +25,7 @@ def main(args: DictConfig) -> None:
     mission_1_pref, mission_2_pref = args.experiment.mission_1_pref, args.experiment.mission_2_pref
     
     args.experiment.experiment_name = f'{mission_1}-{mission_1_pref}-{mission_2}-{mission_2_pref}'
-    args.data.data_path = f"{args.data.data_path}/{mission_1}-{mission_2}/"
+    args.data.data_path = f"{args.data.data_path}/train_{args.data.generalization}/{mission_1}-{mission_2}"
 
     args.data.mission_dict = {
         mission_1: float(mission_1_pref),
@@ -45,7 +45,7 @@ def main(args: DictConfig) -> None:
     is_goal_low_policy_model = "subgoal_low_policy" == args.model.model_name.lower()
 
     # set args for model
-    args.model.dirpath = os.path.join(args.model.dirpath, args.experiment.experiment_name, args.model.model_name)
+    args.model.dirpath = os.path.join(args.model.dirpath, args.data.generalization, f'{mission_1}-{mission_2}', args.experiment.experiment_name, args.model.model_name)
 
     # set args for data
     args.data.goal_conditioned = is_goal_low_policy_model

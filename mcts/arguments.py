@@ -12,7 +12,7 @@ class ModelArguments:
     model_name: str = "transformer_model"
     # model checkpoint save dir
     n_checkpoints: int = 1 # how often we save checkpoints, curr n_epochs // n_checkpoints
-    dirpath: str = "/vision/u/emilyjin/marple_long/checkpoints"
+    dirpath: str = "checkpoints"
     # args for TransformerHeadPolicyModel 
     transformer_input_dim: int = 256 # was 32
     transformer_hidden_dim: int = 256
@@ -140,6 +140,14 @@ class DataArguments:
             )
         },
     )
+    generalization: Optional[str] = field(
+        default='in',
+        metadata={
+            "help": (
+                "Whether to train in-distribution or out-of-distribution"
+            )
+        },
+    )    
 
 
 @dataclass
@@ -383,7 +391,7 @@ class ExperimentArguments:
         },
     )   
     results_dir: Optional[str] = field(
-        default=None,
+        default='results',
         metadata={
             "help": (
                 "Directory to save results"
@@ -444,6 +452,22 @@ class RolloutArguments:
             )
         },
     )
+    inference_scenario: Optional[str] = field(
+        default=None,
+        metadata={
+            "help": (
+                "inference scenario"
+            )
+        },
+    )
+    inference_answer: Optional[str] = field(
+        default='A',
+        metadata={
+            "help": (
+                "agent that is the answer to the inference question: A or B"
+            )
+        },
+    )    
     verbose: Optional[bool] = field(
         default=True,
         metadata={
@@ -576,10 +600,18 @@ class RolloutArguments:
         default=False,
         metadata={
             "help": (
-                'agent a mission'
+                'whether to use audio modality'
             )
         },
     )
+    language: Optional[bool] = field(
+        default=False,
+        metadata={
+            "help": (
+                'whether to use language modality'
+            )
+        },
+    )    
     a_mission: Optional[str] = field(
         default='change_outfit',
         metadata={
