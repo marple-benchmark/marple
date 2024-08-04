@@ -19,7 +19,8 @@ Under Review.
 ## Overview
 MARPLE (in reference to Agatha Christie's Miss Marple) is a benchmark for long-horizon inference based on multimodal evidence. The main goal of MARPLE is to test a model's ability to answer “whodunit”-style questions in daily household scenarios, such as “who turned on the laundry?” The inference problem requires choosing the correct agent from two potential suspects, given knowledge about their prior behaviors and the state of the environment.
 
-**Inference Scenario Setup.** Two agents, A and B, each perform a mission, such as “do laundry” and "change clothes." To complete their mission, each agent must interact with the environment, causing changes in the world and leaving evidence of its activity. A “whodunit” question is constructed by selecting a state that is unique to one agent’s trajectory. For example, a state that is unique to agent A is “laundry is on,” so we pose the question: "Which agent turned on the laundry?" To answer “whodunit” questions, models must leverage evidence in the form of multimodal observations from each agent’s activity history. 
+<!-- **Inference Scenario Setup.** Two agents, A and B, each perform a mission, such as “do laundry” and "change clothes." To complete their mission, each agent must interact with the environment, causing changes in the world and leaving evidence of its activity. A “whodunit” question is constructed by selecting a state that is unique to one agent’s trajectory. For example, a state that is unique to agent A is “laundry is on,” so we pose the question: "Which agent turned on the laundry?" To answer “whodunit” questions, models must leverage evidence in the form of multimodal observations from each agent’s activity history. 
+-->
 
 ![](https://github.com/marple-benchmark/marple/blob/main/figures/main.png)
 
