@@ -1,7 +1,8 @@
 # MARPLE: A Benchmark for Long-Horizon Inference
 [**Project Page**](https://marple-benchmark.github.io/) | [**Dataset**](https://drive.google.com/drive/folders/1zXsErNVOMYjBMWzTnmZS4e4aIljWlRce?usp=sharing)
 
-This repository contains the code for the simulator and experiments in the paper: **MARPLE: A Benchmark for Long-Horizon Inference**.
+This repository contains the code for the paper: **MARPLE: A Benchmark for Long-Horizon Inference**.
+
 Emily Jin\*, Zhuoyi Huang\*, Jan-Philipp Fränken, Weiyu Liu, Hannah Cha, Erik Brockbank, Sarah Wu, Ruohan Zhang, Jiajun Wu, Tobias Gerstenberg.
 
 <!-- ```
