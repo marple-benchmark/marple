@@ -4,15 +4,6 @@
 This repository contains the code for the paper: **MARPLE: A Benchmark for Long-Horizon Inference**.
 
 Emily Jin\*, Zhuoyi Huang\*, Jan-Philipp Fränken, Weiyu Liu, Hannah Cha, Erik Brockbank, Sarah Wu, Ruohan Zhang, Jiajun Wu, Tobias Gerstenberg.
-
-<!-- ```
-@inproceedings{,
-  title = {},
-  booktitle = {},
-  author = {},
-  year = {2024},
-}
-``` -->
  
 MARPLE (in reference to Agatha Christie's Miss Marple) is a benchmark for long-horizon inference based on multimodal evidence. The main goal of MARPLE is to test a model's ability to answer “whodunit”-style questions in daily household scenarios, such as “who turned on the laundry?” The inference problem requires choosing the correct agent from two potential suspects, given knowledge about their prior behaviors and the state of the environment.
 
@@ -30,6 +21,7 @@ MARPLE (in reference to Agatha Christie's Miss Marple) is a benchmark for long-h
   - [GPT-4](#gpt-4)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
+- [CRediT author statement](#credit-author-statement)
 
 ## Installation
 ```bash
@@ -40,11 +32,11 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-## Folder Structure
-Below is the folder structure of our project:
+## Repository Structure
+Below is the structure of our repository:
 
-- `/gpt`: contains all of the code for experiments using GPT-4 experiments, including prompts and scripts.
-- `/mcts`: contains all of the code for experiments using the Mental Simulation method, including scripts for training, evaluation, and inference.
+- `/gpt`: contains all of the code for GPT-4 experiments, including prompts and scripts.
+- `/mcts`: contains all of the code for Mental Simulation experiments, including scripts for training, evaluation, and inference.
 - `/src`
   - `/benchmark`: contains files that define the missions and inference states for the benchmark.
   - `/mini_behavior`: forked from [Mini-BEHAVIOR](https://github.com/StanfordVL/mini_behavior) repo.
@@ -105,7 +97,7 @@ The parameter `rollout.inference_scenario` specifies the inference scenario, `ro
 
 `rollout.policy_model_checkpoint` specifies the full path of the policy model, `rollout.language` is a `bool` that specifies whether to use the language modality (`False` if the policy model is `low_model` and `True` if `subgoal_low_model`), `rollout.audio` is a `bool` that specifies whether to use the audio modality. 
 
-### GPT-4 Inference Experiments
+### GPT-4
 To run inference experiments for all 5 inference scenarios using GPT-4, use the following command:
 ```bash
 python gpt/main.py 
@@ -131,3 +123,14 @@ This work was in part supported by a grant from the Stanford Institute for Human
 - **Ruohan Zhang**:  
 - **Jiajun Wu**: 
 - **Tobias Gerstenberg**: 
+
+<!-- 
+## Citation
+```
+@inproceedings{,
+  title = {},
+  booktitle = {},
+  author = {},
+  year = {2024},
+}
+``` -->
