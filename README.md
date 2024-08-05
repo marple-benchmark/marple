@@ -15,6 +15,7 @@ MARPLE (in reference to Agatha Christie's Miss Marple) is a benchmark for long-h
 ## Contents
 - [Installation](#installation)
 - [Repository Structure](#folder-structure)
+- [Data](#data)
 - [Learning Agent Models](#learning-agent-models) 
 - [Inference Experiments](#inference-experiments)
   - [Mental Simulation with Learned Agent Models](#mental-simulation-with-learned-agent-models)
