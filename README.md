@@ -52,7 +52,7 @@ Below is the structure of our repository:
 - `README.md`
 
 ## Simulator Configuration
-The simulator code is provided in [this](https://github.com/marple-benchmark/marple/tree/main/src/simulator) directory, which contains the code for the agents, planner, multimodal environment, and rollouts. 
+The simulator code is provided in [`src/simulator`](https://github.com/marple-benchmark/marple/tree/main/src/simulator), which contains the code for the agents, planner, multimodal environment, and rollouts. 
 
 ### Environment Initialization
 To initialize an environment, we use the Gym API:
