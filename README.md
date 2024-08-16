@@ -59,10 +59,10 @@ To initialize an environment, we use the Gym API:
 ```bash
 env = gym.make(`MiniGrid-AutoGenerate-16x16-N2-v1`, initial_dict=None)
 ```
-The above line initializes a fully procedurally generated environment. In addition, you can specify properties such as the minimum/maximum environment size, minimum/maximum number of rules, object types, and more through a configuration json file. To initialize an environment according to the config file, load in the json file and pass it in through the `initial_dict` parameter.
+The above line initializes a fully procedurally generated environment. In addition, you can specify properties such as the minimum/maximum environment size, minimum/maximum number of rules, object types, and more through a configuration json file. We provide sample config files in the directory `data/config.` To initialize an environment according to the config file, load in the json file and pass it in through the `initial_dict` parameter.
 
 ### Planner Initialization
-Once the environment is initialized, we can initialize a planner and generate a trajectory of with the visual, audio, and language evidence for an agent as follows:
+Once the environment is initialized, we can initialize a planner for an agent. Then, we can generate a mission trajectory with the visual, audio, and language evidence as follows:
 ```bash
 from src.mini_behavior.planner import Planner
 planner = Planner(env, agent_num) 
