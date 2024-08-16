@@ -254,8 +254,6 @@ def get_trajectory(args, num_data, data_folder, mission, multimodal=False, save_
         os.makedirs(cur_data_folder, exist_ok=True)
 
         print('cur data folder', cur_data_folder)
-        # traj_folder, traj_folder_midlevel = None, None
-        
         
         for agent_iter in range(len(env.agents)):
             # for every agent, get a planner
@@ -269,7 +267,6 @@ def get_trajectory(args, num_data, data_folder, mission, multimodal=False, save_
             
             if multimodal or save_gif:
                 frames, audios = render_furniture(env, window, frames, audios)
-            
 
             # start planner
             planner = Planner(env, env.cur_agent_id)
@@ -303,20 +300,14 @@ def get_trajectory(args, num_data, data_folder, mission, multimodal=False, save_
                         # write each item on a new line
                         fp.write(f"{item}\n")
                 print("Done.")
-                print("Saving sound... ", end="")
-                # combined_sounds = sum(audios)
-                # velocidad_X = 2
-                # combined_sounds = combined_sounds.speedup(velocidad_X, 150, 25)
-                # combined_sounds.export(
-                #     os.path.join(planner.data_folder, f"{time_stamp}/audio.wav"), format="wav")
-            
+                print("Saving sound... ", end="") 
+
                 with open(os.path.join(planner.traj_folder, "audio.txt"), 'w') as fp:
                     for i, item in enumerate(audios_symbolic):
                         # write each item on a new line
                         fp.write(f"{item}\n")
 
                     print(len(frames), len(audios), len(texts))
-                    # assert len(frames) == len(audios), f"Frame no not equal audio no: {time_stamp}"
                     print("Done.")
 
             env = copy.deepcopy(env_original)
@@ -414,7 +405,7 @@ def parse_arguments():
 
 if __name__ == '__main__':
     args = parse_arguments() 
-    #args.save = True
+    args.save = True
 
     args.seed = random.randint(0, 1000)
     print("---------------seed", args.seed)
@@ -427,9 +418,3 @@ if __name__ == '__main__':
     else:
         print('save gif')
         get_trajectory(args=args, num_data=args.num_data, data_folder=args.data_folder, mission=args.mission, multimodal=False, save_gif=True)
-
-    # env = run_subgoal(args, load_state_json, load_subgoal_json, save_state_folder, step_count=step_count, episode=episode)
-
-    
-
-    

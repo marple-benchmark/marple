@@ -16,6 +16,7 @@ MARPLE (in reference to Agatha Christie's Miss Marple) is a benchmark for long-h
 - [Installation](#installation)
 - [Repository Structure](#repository-structure)
 - [Simulator Configuration](#simulator)
+- [Data](#data)
 - [Learning Agent Models](#learning-agent-models) 
 - [Inference Experiments](#inference-experiments)
   - [Mental Simulation with Learned Agent Models](#mental-simulation-with-learned-agent-models)
@@ -51,19 +52,50 @@ Below is the structure of our repository:
 - `README.md`
 
 ## Simulator Configuration
-The simulator code is provided in [this](https://github.com/marple-benchmark/marple/tree/main/src/simulator) directory, which contains the code for the agents, planner, multimodal environment, and rollouts. We provide the following demo script to initialize an environment from a config file and generate an agent trajectory for a mission using our hierarchical planner. To run the demo, use the following command: 
+The simulator code is provided in [this](https://github.com/marple-benchmark/marple/tree/main/src/simulator) directory, which contains the code for the agents, planner, multimodal environment, and rollouts. 
+
+### Environment Initialization
+To initialize an environment, we use the Gym API:
+```bash
+env = gym.make(`MiniGrid-AutoGenerate-16x16-N2-v1`, initial_dict=None)
+```
+The above line initializes a fully procedurally generated environment. In addition, you can specify properties such as the minimum/maximum environment size, minimum/maximum number of rules, object types, and more through a configuration json file. To initialize an environment according to the config file, load in the json file and pass it in through the `initial_dict` parameter.
+
+### Planner Initialization
+Once the environment is initialized, we can initialize a planner and generate a trajectory of with the visual, audio, and language evidence for an agent as follows:
+```bash
+from src.mini_behavior.planner import Planner
+planner = Planner(env, agent_num) 
+obs, reward, done, frames, audios, audios_symbolic, texts, step_count = planner.high_level_planner(args, frames=[], audios=[], audios_symbolic=[], texts=[], step_count=0)
+```
+This returns lists of evidence for each timestep of the trajectory: frames=list of frames as np arrays, audios=list of filenames to audio sounds, texts = list of language evidence.
+
+### Demo Script
+
+We provide the following demo script to initialize an environment from a config file and generate an agent trajectory for a mission using our hierarchical planner. To run the demo, use the following command: 
 
 ```bash
 python src/simulator/demo.py --config path/to/config.json --data_folder path/to/data --num_data num_data --mission mission
 ```
-The argument `--config` specifies the path to the config file, `--data_folder` is the path to save the generated trajectory, `--num_data` is the number of trajectories to generate, and `--mission` is the mission that the agent should perform. 
+The argument `--config` specifies the path to the config file, `--data_folder` is the path to save the generated trajectory, `--num_data` is the number of trajectories to generate, and `--mission` is the mission that the agent should perform. We provide some sample config files in `data/config`.
 
 ## Data
 The MARPLE Benchmark features 10 diverse, long-horizon missions, which are paired to create 5 challenging inference scenarios that offer a balanced representation of complexity and diversity. Each mission is accompanied by both train and test datasets: two train datasets, each containing 5000 agent trajectories (one for evaluating in-distribution performance and the other for out-of-distribution performance), and a test dataset with 500 diverse agent trajectories.
 
 ### Downloading Data
 The data is uploaded [here](https://drive.google.com/drive/folders/1zXsErNVOMYjBMWzTnmZS4e4aIljWlRce?usp=sharing) as zip files. There is one folder for each set of training data, and each folder contains a zip file for each inference scenario. The test data for all scenarios is in one zip file. You can download and add them to the `data` directory, following the same folder structure. The scripts will assume that the data is located there.
-<!-- ### Generating Data -->
+
+### Generating Data
+To generate data, you need a configuration file that allows you to specify properties such as the minimum/maximum environment size, minimum/maximum number of rules, object types, and more. We provide some sample configuration files in `data/config`. You can generate a configuration file that satisfies the initial conditions for a given inference scenario with `mission_1` and `mission_2` by running the following command:
+```bash
+python data/scripts/gen_mission_config.py --mission_1 mission_1 --mission_2 mission_2 --min_size min_size --max_size max_size --config_dir path/to/save/config
+```
+ Once you have a configuration file that satisfies the initial conditions, run the following command to generate data for one of the missions:
+
+```bash
+python src/mini_behavior/auto_control.py --config path/to/config/json --data_folder path/to/data_folder --num_data num_data --mission mission
+
+```
 
 ## Learning Agent Models
 ### Train Agent Models

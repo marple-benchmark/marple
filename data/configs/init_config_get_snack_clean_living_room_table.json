@@ -1,0 +1,627 @@
+{
+    "Grid": {
+        "auto": {
+            "max_num_agent": 1,
+            "room_split_dirs": [
+                "vert",
+                "horz"
+            ],
+            "min_room_dim": 5,
+            "max_num_room": 4
+        },
+        "height": 20,
+        "width": 18,
+        "agents": {
+            "num": 1,
+            "initial": [
+                {
+                    "name": "A",
+                    "id": 1,
+                    "gender": "male",
+                    "pos": null,
+                    "dir": null,
+                    "color": "red",
+                    "step_size": 1,
+                    "forgetness": 0,
+                    "mission_preference_initial": {},
+                    "cur_mission": null,
+                    "cur_subgoal": null,
+                    "carrying": {
+                        "num": 0,
+                        "initial": []
+                    }
+                }
+            ]
+        },
+        "rooms": {
+            "num": 4,
+            "initial": [
+                {
+                    "type": "LivingRoom",
+                    "name": "LivingRoom_1",
+                    "id": 1,
+                    "top": [
+                        1,
+                        1
+                    ],
+                    "size": [
+                        5,
+                        18
+                    ],
+                    "furnitures": {
+                        "num": 3,
+                        "initial": [
+                            {
+                                "type": "table",
+                                "name": "table_4",
+                                "id": 4,
+                                "pos": [
+                                    1,
+                                    17
+                                ],
+                                "state": {
+                                    "dustyable": true,
+                                    "stainable": true
+                                },
+                                "objs": {
+                                    "num": 0,
+                                    "initial": []
+                                }
+                            },
+                            {
+                                "type": "light",
+                                "name": "light_5",
+                                "id": 5,
+                                "pos": [
+                                    1,
+                                    2
+                                ],
+                                "state": {
+                                    "toggleable": false
+                                },
+                                "objs": {
+                                    "num": 0,
+                                    "initial": []
+                                }
+                            },
+                            {
+                                "type": "cabinet",
+                                "name": "cabinet_6",
+                                "id": 6,
+                                "pos": [
+                                    3,
+                                    7
+                                ],
+                                "state": {
+                                    "dustyable": true,
+                                    "openable": true,
+                                    "stainable": true
+                                },
+                                "objs": {
+                                    "num": 4,
+                                    "initial": [
+                                        {
+                                            "type": "necklace",
+                                            "name": "necklace_7",
+                                            "id": 7,
+                                            "pos": [
+                                                3,
+                                                9
+                                            ],
+                                            "state": {
+                                                "dustyable": true,
+                                                "stainable": true
+                                            }
+                                        },
+                                        {
+                                            "type": "book",
+                                            "name": "book_8",
+                                            "id": 8,
+                                            "pos": [
+                                                4,
+                                                9
+                                            ],
+                                            "state": {
+                                                "dustyable": false
+                                            }
+                                        },
+                                        {
+                                            "type": "ball",
+                                            "name": "ball_9",
+                                            "id": 9,
+                                            "pos": [
+                                                4,
+                                                8
+                                            ],
+                                            "state": {
+                                                "dustyable": false,
+                                                "stainable": true
+                                            }
+                                        },
+                                        {
+                                            "type": "backpack",
+                                            "name": "backpack_10",
+                                            "id": 10,
+                                            "pos": [
+                                                3,
+                                                7
+                                            ],
+                                            "state": {}
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "floor_objs": {
+                        "num": 0,
+                        "initial": []
+                    }
+                },
+                {
+                    "type": "Kitchen",
+                    "name": "Kitchen_2",
+                    "id": 2,
+                    "top": [
+                        7,
+                        1
+                    ],
+                    "size": [
+                        10,
+                        6
+                    ],
+                    "furnitures": {
+                        "num": 3,
+                        "initial": [
+                            {
+                                "type": "electric_refrigerator",
+                                "name": "electric_refrigerator_11",
+                                "id": 11,
+                                "pos": [
+                                    12,
+                                    2
+                                ],
+                                "state": {
+                                    "dustyable": false,
+                                    "openable": false,
+                                    "stainable": false
+                                },
+                                "objs": {
+                                    "num": 3,
+                                    "initial": [
+                                        {
+                                            "type": "sandwich",
+                                            "name": "sandwich_12",
+                                            "id": 12,
+                                            "pos": [
+                                                13,
+                                                4
+                                            ],
+                                            "state": {
+                                                "cookable": true,
+                                                "freezable": false
+                                            }
+                                        },
+                                        {
+                                            "type": "sugar",
+                                            "name": "sugar_13",
+                                            "id": 13,
+                                            "pos": [
+                                                12,
+                                                4
+                                            ],
+                                            "state": {
+                                                "cookable": false
+                                            }
+                                        },
+                                        {
+                                            "type": "bread",
+                                            "name": "bread_14",
+                                            "id": 14,
+                                            "pos": [
+                                                12,
+                                                3
+                                            ],
+                                            "state": {
+                                                "cookable": false,
+                                                "freezable": false
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "closet",
+                                "name": "closet_15",
+                                "id": 15,
+                                "pos": [
+                                    10,
+                                    3
+                                ],
+                                "state": {
+                                    "openable": false
+                                },
+                                "objs": {
+                                    "num": 2,
+                                    "initial": [
+                                        {
+                                            "type": "towel",
+                                            "name": "towel_16",
+                                            "id": 16,
+                                            "pos": [
+                                                11,
+                                                3
+                                            ],
+                                            "state": {
+                                                "soakable": false,
+                                                "stainable": true
+                                            }
+                                        },
+                                        {
+                                            "type": "kettle",
+                                            "name": "kettle_17",
+                                            "id": 17,
+                                            "pos": [
+                                                11,
+                                                4
+                                            ],
+                                            "state": {
+                                                "dustyable": false,
+                                                "stainable": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "bucket",
+                                "name": "bucket_18",
+                                "id": 18,
+                                "pos": [
+                                    9,
+                                    1
+                                ],
+                                "state": {
+                                    "dustyable": true,
+                                    "stainable": true
+                                },
+                                "objs": {
+                                    "num": 1,
+                                    "initial": [
+                                        {
+                                            "type": "ball",
+                                            "name": "ball_19",
+                                            "id": 19,
+                                            "pos": [
+                                                9,
+                                                1
+                                            ],
+                                            "state": {
+                                                "dustyable": true,
+                                                "stainable": false
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "floor_objs": {
+                        "num": 0,
+                        "initial": []
+                    }
+                },
+                {
+                    "type": "Bathroom",
+                    "name": "Bathroom_3",
+                    "id": 3,
+                    "top": [
+                        7,
+                        8
+                    ],
+                    "size": [
+                        5,
+                        11
+                    ],
+                    "furnitures": {
+                        "num": 3,
+                        "initial": [
+                            {
+                                "type": "laundry",
+                                "name": "laundry_20",
+                                "id": 20,
+                                "pos": [
+                                    10,
+                                    15
+                                ],
+                                "state": {
+                                    "toggleable": true,
+                                    "openable": false
+                                },
+                                "objs": {
+                                    "num": 1,
+                                    "initial": [
+                                        {
+                                            "type": "soap",
+                                            "name": "soap_21",
+                                            "id": 21,
+                                            "pos": [
+                                                10,
+                                                16
+                                            ],
+                                            "state": {}
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "shelf",
+                                "name": "shelf_22",
+                                "id": 22,
+                                "pos": [
+                                    9,
+                                    11
+                                ],
+                                "state": {
+                                    "dustyable": false,
+                                    "stainable": false
+                                },
+                                "objs": {
+                                    "num": 3,
+                                    "initial": [
+                                        {
+                                            "type": "scrub_brush",
+                                            "name": "scrub_brush_23",
+                                            "id": 23,
+                                            "pos": [
+                                                9,
+                                                13
+                                            ],
+                                            "state": {
+                                                "dustyable": false,
+                                                "soakable": false,
+                                                "stainable": false
+                                            }
+                                        },
+                                        {
+                                            "type": "soap",
+                                            "name": "soap_24",
+                                            "id": 24,
+                                            "pos": [
+                                                9,
+                                                11
+                                            ],
+                                            "state": {}
+                                        },
+                                        {
+                                            "type": "pot_plant",
+                                            "name": "pot_plant_25",
+                                            "id": 25,
+                                            "pos": [
+                                                10,
+                                                11
+                                            ],
+                                            "state": {
+                                                "soakable": false
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "chair",
+                                "name": "chair_26",
+                                "id": 26,
+                                "pos": [
+                                    8,
+                                    12
+                                ],
+                                "state": {
+                                    "dustyable": true,
+                                    "stainable": false
+                                },
+                                "objs": {
+                                    "num": 0,
+                                    "initial": []
+                                }
+                            }
+                        ]
+                    },
+                    "floor_objs": {
+                        "num": 0,
+                        "initial": []
+                    }
+                },
+                {
+                    "type": "Bedroom",
+                    "name": "Bedroom_4",
+                    "id": 4,
+                    "top": [
+                        13,
+                        8
+                    ],
+                    "size": [
+                        4,
+                        11
+                    ],
+                    "furnitures": {
+                        "num": 3,
+                        "initial": [
+                            {
+                                "type": "table",
+                                "name": "table_27",
+                                "id": 27,
+                                "pos": [
+                                    14,
+                                    13
+                                ],
+                                "state": {
+                                    "dustyable": false,
+                                    "stainable": true
+                                },
+                                "objs": {
+                                    "num": 1,
+                                    "initial": [
+                                        {
+                                            "type": "towel",
+                                            "name": "towel_28",
+                                            "id": 28,
+                                            "pos": [
+                                                16,
+                                                13
+                                            ],
+                                            "state": {
+                                                "soakable": false,
+                                                "stainable": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "cabinet",
+                                "name": "cabinet_29",
+                                "id": 29,
+                                "pos": [
+                                    14,
+                                    10
+                                ],
+                                "state": {
+                                    "dustyable": true,
+                                    "openable": true,
+                                    "stainable": true
+                                },
+                                "objs": {
+                                    "num": 2,
+                                    "initial": [
+                                        {
+                                            "type": "basket",
+                                            "name": "basket_30",
+                                            "id": 30,
+                                            "pos": [
+                                                14,
+                                                11
+                                            ],
+                                            "state": {
+                                                "dustyable": false,
+                                                "stainable": true
+                                            }
+                                        },
+                                        {
+                                            "type": "backpack",
+                                            "name": "backpack_31",
+                                            "id": 31,
+                                            "pos": [
+                                                15,
+                                                10
+                                            ],
+                                            "state": {}
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "shelf",
+                                "name": "shelf_32",
+                                "id": 32,
+                                "pos": [
+                                    13,
+                                    16
+                                ],
+                                "state": {
+                                    "dustyable": false,
+                                    "stainable": true
+                                },
+                                "objs": {
+                                    "num": 3,
+                                    "initial": [
+                                        {
+                                            "type": "bow",
+                                            "name": "bow_33",
+                                            "id": 33,
+                                            "pos": [
+                                                14,
+                                                17
+                                            ],
+                                            "state": {
+                                                "dustyable": true
+                                            }
+                                        },
+                                        {
+                                            "type": "clothes",
+                                            "name": "clothes_34",
+                                            "id": 34,
+                                            "pos": [
+                                                14,
+                                                18
+                                            ],
+                                            "state": {
+                                                "dustyable": false,
+                                                "stainable": true
+                                            }
+                                        },
+                                        {
+                                            "type": "gym_shoe",
+                                            "name": "gym_shoe_35",
+                                            "id": 35,
+                                            "pos": [
+                                                13,
+                                                17
+                                            ],
+                                            "state": {
+                                                "dustyable": true,
+                                                "stainable": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "floor_objs": {
+                        "num": 0,
+                        "initial": []
+                    }
+                }
+            ]
+        },
+        "doors": {
+            "num": 3,
+            "initial": [
+                {
+                    "type": "door",
+                    "name": "door",
+                    "id": 1,
+                    "dir": "vert",
+                    "pos": [
+                        6,
+                        4
+                    ],
+                    "state": "open"
+                },
+                {
+                    "type": "door",
+                    "name": "door",
+                    "id": 2,
+                    "dir": "horz",
+                    "pos": [
+                        14,
+                        7
+                    ],
+                    "state": "open"
+                },
+                {
+                    "type": "door",
+                    "name": "door",
+                    "id": 3,
+                    "dir": "vert",
+                    "pos": [
+                        12,
+                        10
+                    ],
+                    "state": "open"
+                }
+            ]
+        }
+    }
+}

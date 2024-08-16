@@ -1,0 +1,74 @@
+{
+    "Grid": {
+        "auto": {
+            "max_num_agent": 1,
+            "room_split_dirs": ["vert", "horz"],
+            "min_room_dim": 5,
+            "max_num_room": 4
+        },
+        "height": 20, 
+        "width": 20,
+        "agents": {
+            "num": 1,
+            "initial":
+            [
+                {
+                    "name": "A",
+                    "gender": "male",
+                    "pos": null,
+                    "dir": null,
+                    "color": "red",
+                    "step_size": 1,
+                    "forgetness": 0,
+                    "mission_preference_initial": {},
+                    "cur_mission": null,
+                    "cur_subgoal": null,
+                    "carrying": null
+                }               
+            ]
+        },
+
+    "rooms": {
+            "num": 4,
+            "initial":
+            [
+                {
+                   "type": "Bedroom",
+                   "top": null,
+                    "size": null,
+                    "furnitures": {
+                        "num": 1,
+                        "initial": []
+                    }
+                },
+                {
+                    "type": "Bathroom",
+                    "top": null,
+                     "size": null,
+                     "furnitures": {
+                         "num": 1,
+                         "initial": []
+                     }
+                },             
+                {
+                    "type": "Kitchen",
+                    "top": null,
+                     "size": null,
+                     "furnitures": {
+                         "num": 1,
+                         "initial": []
+                     }
+                },
+                {
+                    "type": "LivingRoom",
+                    "top": null,
+                     "size": null,
+                     "furnitures": {
+                         "num": 1,
+                         "initial": []
+                     }
+                }
+            ]
+        }  
+    }
+}
