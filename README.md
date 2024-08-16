@@ -37,6 +37,7 @@ pip install -e .
 ## Repository Structure
 Below is the structure of our repository:
 
+- `/data`: contains scripts and sampel configs for generating data.
 - `/gpt`: contains all of the code for GPT-4 experiments, including prompts and scripts.
 - `/mcts`: contains all of the code for Mental Simulation experiments, including scripts for training, evaluation, and inference.
 - `/src`
@@ -44,12 +45,11 @@ Below is the structure of our repository:
   - `/mini_behavior`: forked from [Mini-BEHAVIOR](https://github.com/StanfordVL/mini_behavior) repo.
   - `/models`: contains all of the code for the agent policy models and inference models used for the mental simulation method.
   - `/simulator`: contains all of the code for the multimodal environment simulator and hierarchical agent planner.
-- `/figures`: contains figures used in the README
+- `/figures`: contains figures used in the README.
 - `experiments.json`: specifies the 5 inference scenarios, inference questions and answers, and trajectories that were used in experiments.
-- `setup.py`
-- `requirements.txt`
-- `datasheet.md`
 - `README.md`
+- `datasheet.md`
+- `requirements.txt`
 
 ## Simulator Configuration
 The simulator code is provided in [`src/simulator`](https://github.com/marple-benchmark/marple/tree/main/src/simulator), which contains the code for the agents, planner, multimodal environment, and rollouts. 
