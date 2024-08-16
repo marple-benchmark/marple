@@ -14,7 +14,8 @@ MARPLE (in reference to Agatha Christie's Miss Marple) is a benchmark for long-h
 
 ## Contents
 - [Installation](#installation)
-- [Repository Structure](#folder-structure)
+- [Repository Structure](#repository-structure)
+- [Simulator Configuration](#simulator)
 - [Learning Agent Models](#learning-agent-models) 
 - [Inference Experiments](#inference-experiments)
   - [Mental Simulation with Learned Agent Models](#mental-simulation-with-learned-agent-models)
@@ -48,6 +49,14 @@ Below is the structure of our repository:
 - `requirements.txt`
 - `datasheet.md`
 - `README.md`
+
+## Simulator Configuration
+The simulator code is provided in [this](https://github.com/marple-benchmark/marple/tree/main/src/simulator) directory, which contains the code for the agents, planner, multimodal environment, and rollouts. We provide the following demo script to generate the environment from a config file and generate an agent trajectory for a mission. To run the demo, use the following command: 
+
+```bash
+python src/simulator/demo.py --config path/to/config.json --data_folder path/to/data --num_data num_data --mission mission
+```
+
 
 ## Data
 The MARPLE Benchmark features 10 diverse, long-horizon missions, which are paired to create 5 challenging inference scenarios that offer a balanced representation of complexity and diversity. Each mission is accompanied by both train and test datasets: two train datasets, each containing 5000 agent trajectories (one for evaluating in-distribution performance and the other for out-of-distribution performance), and a test dataset with 500 diverse agent trajectories.
