@@ -154,16 +154,16 @@ This work was in part supported by a grant from the Stanford Institute for Human
 ## CRediT author statement
 *[What is a CRediT author statement?](https://www.elsevier.com/researcher/author/policies-and-guidelines/credit-author-statement)*
 
-- **Emily Jin\***: 
-- **Zhuoyi Huang\***: 
-- **Philipp Jan-Fränken**: 
-- **Weiyu Liu**:
-- **Hannah Cha**:
-- **Erik Brockbank**:
-- **Sarah Wu**:  
-- **Ruohan Zhang**:  
-- **Jiajun Wu**: 
-- **Tobias Gerstenberg**: 
+- **Emily Jin\***: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data Curation, Writing - Original Draft, Writing - Review & Editing, Visualization, Project administration
+- **Zhuoyi Huang\***: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data Curation, Writing - Original Draft, Writing - Review & Editing, Visualization, Project administration
+- **Philipp Jan-Fränken**: Conceptualization, Methodology, Software, Formal analysis, Investigation, Resources, Writing - Original Draft, Writing - Review & Editing, Supervision
+- **Weiyu Liu**: Conceptualization, Methodology, Software, Formal analysis, Investigation, Resources, Writing - Original Draft, Writing - Review & Editing, Supervision
+- **Hannah Cha**: Conceptualization, Methodology, Visualization
+- **Erik Brockbank**: Conceptualization, Methodology, Writing - Review & Editing
+- **Sarah Wu**: Conceptualization, Methodology, Software, Visualization
+- **Ruohan Zhang**: Conceptualization, Methodology, Validation, Formal analysis, Investigation, Resources, Writing - Original Draft, Writing - Review & Editing, Visualization, Supervision, Project administration
+- **Jiajun Wu**: Conceptualization, Methodology, Writing - Review & Editing, Supervision, Project administration, Funding acquisition
+- **Tobias Gerstenberg**: Conceptualization, Methodology, Validation, Writing - Review & Editing, Supervision, Project administration, Funding acquisition
 
 <!-- 
 ## Citation
