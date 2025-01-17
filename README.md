@@ -164,14 +164,14 @@ This work was in part supported by a grant from the Stanford Institute for Human
 - **Ruohan Zhang**: Conceptualization, Methodology, Validation, Formal analysis, Investigation, Resources, Writing - Original Draft, Writing - Review & Editing, Visualization, Supervision, Project administration
 - **Jiajun Wu**: Conceptualization, Methodology, Writing - Review & Editing, Supervision, Project administration, Funding acquisition
 - **Tobias Gerstenberg**: Conceptualization, Methodology, Validation, Writing - Review & Editing, Supervision, Project administration, Funding acquisition
-
-<!-- 
+ 
 ## Citation
 ```
-@inproceedings{,
-  title = {},
-  booktitle = {},
-  author = {},
-  year = {2024},
+@inproceedings{
+jin2024marple,
+title={{MARPLE}: A Benchmark for Long-Horizon Inference},
+author={Emily Jin and Zhuoyi Huang and Jan-Philipp Fr{\"a}nken and Weiyu Liu and Hannah Cha and Erik Brockbank and Sarah A Wu and Ruohan Zhang and Jiajun Wu and Tobias Gerstenberg},
+booktitle={The Thirty-eight Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+year={2024},
+url={https://openreview.net/forum?id=nAFBHoMpQs}
 }
-``` -->
